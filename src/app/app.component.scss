@@ -1,0 +1,14 @@
+.app-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  height: 90px;
+
+  .toolbar-search-and-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+}
