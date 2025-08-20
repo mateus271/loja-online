@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../shared/interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,12 @@ import { Product } from '../../shared/interfaces/product.interface';
 export class HomeComponent implements OnInit {
   public productsArray: Product[] = [];
 
-  constructor(private storeService: StoreService) {}
+  constructor(private storeService: StoreService, private router: Router) {}
 
   ngOnInit(): void {
     this.storeService.getProducts().subscribe({
       next: (products) => {
-        this.productsArray = products
+        this.productsArray = products;
       },
       error: (err) => {
         console.log("Erro!")
@@ -26,6 +27,6 @@ export class HomeComponent implements OnInit {
   }
 
   public productSelected(event: number): void {
-    console.log("Produto clicado", event);
+    this.router.navigate(['/product-details/', event]);
   }
 }
