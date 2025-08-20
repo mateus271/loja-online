@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,11 +7,21 @@ import { HomeComponent } from './components/home/home.component';
 import { AngularMaterialModule } from './shared/modules/angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { ProductCardComponent } from './components/home/product-card/product-card.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProductCardComponent,
+    ProductDetailsComponent,
+    NavbarComponentComponent,
+    TruncatePipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -24,4 +24,8 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  public productSelected(event: number): void {
+    console.log("Produto clicado", event);
+  }
 }

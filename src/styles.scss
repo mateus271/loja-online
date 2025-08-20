@@ -30,8 +30,16 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+p {
+  margin: 0;
+}
+
 mat-form-field.product-search-input {
   .mat-mdc-form-field-bottom-align {
     display: none;
   }
+}
+
+app-product-card {
+  width: 100%;
 }
