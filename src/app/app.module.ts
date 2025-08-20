@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductCardComponent } from './components/home/product-card/product-card.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -19,7 +18,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomeComponent,
     ProductCardComponent,
     ProductDetailsComponent,
-    NavbarComponentComponent,
     TruncatePipe,
     NavbarComponent
   ],

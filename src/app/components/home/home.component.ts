@@ -16,12 +16,20 @@ export class HomeComponent implements OnInit {
   constructor(private storeService: StoreService, private router: Router) {}
 
   ngOnInit(): void {
+    if (this.storeService.products.length === 0) {
+      this.getProductsFromApi();
+    } else {
+      this.productsArray = this.storeService.products;
+    }
+  }
+
+  private getProductsFromApi(): void {
     this.storeService.getProducts().subscribe({
       next: (products) => {
-        this.productsArray = products;
+        this.storeService.products = this.productsArray = products;
       },
       error: (err) => {
-        console.log("Erro!")
+        console.log("Erro!");
       }
     });
   }

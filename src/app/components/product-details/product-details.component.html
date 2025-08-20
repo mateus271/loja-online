@@ -1,2 +1,15 @@
-<p>product-details works!</p>
-<p> id: {{ productId }} </p>
+<div class="product-details-page-container">
+  <div class="product-image">
+    <img [src]="selectedProduct?.image" alt="">
+  </div>
+  <div class="product-details-container">
+    <h1>{{ selectedProduct?.title }}</h1>
+    <p class="product-price">{{ selectedProduct?.price| currency: 'BRL' }}</p>
+    <p class="product-description">{{ selectedProduct?.description }}</p>
+
+    <button mat-fab extended class="add-product-to-cart-button" (click)="addProductToCart(selectedProduct?.id)">
+      <mat-icon fontSet="material-icons-outlined">add_shopping_cart</mat-icon>
+      Adicionar ao carrinho
+    </button>
+  </div>
+</div>

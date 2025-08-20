@@ -7,7 +7,7 @@
       <div class="product-details">
         <p>{{ product.title | truncate:20 }}</p>
         <p>{{ product.price | currency: 'BRL' }}</p>
-        <button mat-flat-button>Detalhes</button>
+        <button mat-flat-button (click)="selectProduct(product.id)">Detalhes</button>
       </div>
     </div>
   }
