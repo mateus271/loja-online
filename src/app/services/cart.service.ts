@@ -13,7 +13,7 @@ export class CartService {
   constructor() { }
 
   public addProductIdToCart(id: number): boolean {
-    if (this.idsOfProductsInCart.find((productId) => productId === id)) {
+    if (this.getProductInArrayById(id)) {
       return false;
     } else {
       this.idsOfProductsInCart.push(id);
@@ -24,5 +24,21 @@ export class CartService {
 
   public getProductsInCart(): number[] {
     return this.idsOfProductsInCart;
+  }
+
+  public removeItemFromCart(id: number): boolean {
+    const itemIndexInArray = this.idsOfProductsInCart.findIndex((productId) => productId === id);
+
+    if (itemIndexInArray >= 0) {
+      this.idsOfProductsInCart.splice(itemIndexInArray, 1);
+      this.itemsInCart$.next(this.idsOfProductsInCart.length);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private getProductInArrayById(id: number) {
+    return this.idsOfProductsInCart.find((productId) => productId === id);
   }
 }

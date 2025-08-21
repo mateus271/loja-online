@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private cartSubscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,5 +39,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       // this.shopService.changeSearchParam(($event.target as HTMLInputElement).value);
     }, 200)
+  }
+
+  public navigate(route: string): void {
+    this.router.navigate([route]);
   }
 }

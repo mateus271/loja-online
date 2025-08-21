@@ -5,6 +5,10 @@
   padding: 20px 20px;
   height: 90px;
 
+  .store-name {
+    cursor: pointer;
+  }
+
   .toolbar-search-and-button-container {
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,5 @@
 <mat-toolbar class="app-toolbar">
-  <h1>Loja Bacana</h1>
+  <h1 class="store-name" (click)="navigate('home')" matTooltip="Voltar à tela inicial">Loja Bacana</h1>
 
   <div class="toolbar-search-and-button-container">
     <mat-form-field class="product-search-input" appearance="outline" (keydown)="handleKeydown($event)">
@@ -9,7 +9,7 @@
       <input matInput  type="text" [(ngModel)]="searchValue">
     </mat-form-field>
 
-    <button mat-fab>
+    <button mat-fab (click)="navigate('cart')">
       <mat-icon
         [matBadge]="itemsInCart"
         [matBadgeHidden]="isBadgeHidden"

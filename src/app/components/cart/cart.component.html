@@ -1,0 +1,32 @@
+<div class="cart-container">
+  @if (productsArray.length === 0) {
+    <div class="no-items-content">
+      <p class="no-items-disclaimer">Você ainda não adicionou produtos ao seu carrinho!</p>
+      <button mat-fab extended class="no-items-button" (click)="navigate('home')">
+        <mat-icon fontSet="material-icons-outlined">shopping_cart</mat-icon>
+        Voltar à loja
+      </button>
+    </div>
+  } @else {
+    @for (product of productsArray; track product.id) {
+      <div class="cart-item-card">
+        <div class="product-info-container">
+          <img [src]="product.image" alt="">
+
+          <div class="product-name-and-button-container">
+            <p class="product-name">{{ product.title }}</p>
+
+            <button class="remove-item-button" mat-fab extended (click)="removeItemFromCart(product.id)">
+              <mat-icon fontSet="material-icons-outlined">delete</mat-icon>
+              Remover
+            </button>
+          </div>
+        </div>
+
+        <p class="product-price">{{ product.price | currency: 'BRL' }}</p>
+      </div>
+    }
+
+    <p class="total-cart-price">Valor total: <span class="price">{{ totalPrice | currency: 'BRL' }}</span></p>
+  }
+</div>

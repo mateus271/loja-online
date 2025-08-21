@@ -6,7 +6,7 @@ import { Product } from '../shared/interfaces/product.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class StoreService {
+export class ProductService {
   public products: Product[] = [];
 
   private apiUrl: string = "https://fakestoreapi.com/products";

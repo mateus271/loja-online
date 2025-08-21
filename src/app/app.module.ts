@@ -11,6 +11,7 @@ import { ProductCardComponent } from './components/home/product-card/product-car
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProductCardComponent,
     ProductDetailsComponent,
     TruncatePipe,
-    NavbarComponent
+    NavbarComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
