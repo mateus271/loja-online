@@ -1,3 +1,4 @@
+import { AuthService } from '../../services/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private cartSubscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(public authService: AuthService, private cartService: CartService, private router: Router) {
   }
 
   ngOnInit(): void {

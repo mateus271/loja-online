@@ -1,59 +1,44 @@
 # LojaOnline
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Projeto criado utilizando [Angular CLI](https://github.com/angular/angular-cli) versão 19.2.15. Consome a [FakeStoreApi](https://fakestoreapi.com/) para simular uma loja online, em que o usuário pode adicionar e remover produtos do seu carrinho.
+
+Para acessar o carrinho, é necessário fazer login, utilizando qualquer uma das credenciais abaixo (ou qualquer uma das outras, que podem ser encontradas no site da Api supracitada):
+
+> usuário: "johnd", <br>
+> senha: "m38rmF$", <br>
+    
+> usuário: "mor_2314", <br>
+> senha: "83r5^_", <br>
+
+> usuário: "kevinryan", <br>
+> senha: "kev02937@", <br>
+
+> usuário: "donero", <br>
+> senha: "ewedon", <br>
+
+> usuário: "derek", <br>
+> senha: "jklg*_56", <br>
+
+É possível verificar seu estado (logado/deslogado) através do cabeçalho: o botão do carrinho fica bloqueado quando deslogado, e o texto do tooltip que aparece abaixo do botão de login é alterado. 
 
 ## Development server
 
-To start a local development server, run:
+Para rodar a aplicação, é necessário primeiramente instalar os pacotes, utilizando o comando 
+
+```bash
+npm install
+```
+
+Depois, basta utilizar o comando
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+ou
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Quando a aplicação estiver rodando, basta abrir seu navegador e ir até a rota `http://localhost:4200/`. A aplicação vai recarregar imediatamente quando você salvar qualquer dos arquivos fonte.

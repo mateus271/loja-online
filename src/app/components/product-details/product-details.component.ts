@@ -15,10 +15,11 @@ export class ProductDetailsComponent implements OnInit {
   public productId: number = 0;
   public selectedProduct: Product | undefined = undefined;
 
-  private snackBar = inject(MatSnackBar);
   private productAddedSuccessfuly: boolean = false;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService, private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.productId = parseInt(this.route.snapshot.paramMap.get("id") ?? "0");

@@ -11,10 +11,10 @@ export class ProductService {
 
   private apiUrl: string = "https://fakestoreapi.com/products";
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.httpClient.get<Product[]>(this.apiUrl);
   }
 
   public findProductById(id: number): Product | undefined {

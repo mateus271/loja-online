@@ -9,21 +9,22 @@
       <input matInput  type="text" [(ngModel)]="searchValue">
     </mat-form-field>
 
-    <button mat-fab (click)="navigate('cart')">
+    <button mat-fab
+      (click)="navigate('cart')"
+      [matTooltip]="authService.isUserLoggedIn() ? 'Ir para o carrinho' : 'Fazer login'">
       <mat-icon
         [matBadge]="itemsInCart"
         [matBadgeHidden]="isBadgeHidden"
-        fontSet="material-icons-outlined"
-        matTooltip="Ir para o carrinho">
+        fontSet="material-icons-outlined">
           shopping_cart
       </mat-icon>
     </button>
 
-    <button mat-fab>
-      <mat-icon
-        fontSet="material-icons-outlined"
-        matTooltip="Fazer login">
-          person
+    <button mat-fab
+      (click)="navigate('login')"
+      [matTooltip]="authService.isUserLoggedIn() ? 'Sair' : 'Entrar'">
+      <mat-icon fontSet="material-icons-outlined">
+        person
       </mat-icon>
     </button>
   </div>
