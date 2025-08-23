@@ -43,3 +43,13 @@ mat-form-field.product-search-input {
 app-product-card {
   width: 100%;
 }
+
+table.products-table {
+  tbody > tr {
+    height: 72px;
+
+    button {
+      margin-top: 7%;
+    }
+  }
+}

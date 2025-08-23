@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ProductService } from '../../services/store.service';
+import { StoreService } from '../../services/store.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../shared/interfaces/product.interface';
 import { Router } from '@angular/router';
@@ -13,20 +13,20 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   public productsArray: Product[] = [];
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private storeService: StoreService, private router: Router) {}
 
   ngOnInit(): void {
-    if (this.productService.products.length === 0) {
+    if (this.storeService.products.length === 0) {
       this.getProductsFromApi();
     } else {
-      this.productsArray = this.productService.products;
+      this.productsArray = this.storeService.products;
     }
   }
 
   private getProductsFromApi(): void {
-    this.productService.getProducts().subscribe({
+    this.storeService.getProducts().subscribe({
       next: (products) => {
-        this.productService.products = this.productsArray = products;
+        this.storeService.products = this.productsArray = products;
       },
       error: (err) => {
         console.log("Erro!");

@@ -27,5 +27,15 @@
         person
       </mat-icon>
     </button>
+
+    @if(authService.isUserLoggedIn()) {
+      <button mat-fab
+        (click)="navigate('admin')"
+        matTooltip="Painel do administrador">
+        <mat-icon fontSet="material-icons-outlined">
+          space_dashboard
+        </mat-icon>
+      </button>
+    }
   </div>
 </mat-toolbar>

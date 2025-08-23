@@ -6,7 +6,7 @@ import { Product } from '../shared/interfaces/product.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class StoreService {
   public products: Product[] = [];
 
   private apiUrl: string = "https://fakestoreapi.com/products";
@@ -23,5 +23,9 @@ export class ProductService {
     } else {
       return undefined;
     }
+  }
+
+  public deleteProduct(id: number): Observable<Product> {
+    return this.httpClient.delete<Product>(`${this.apiUrl}/${id}`);
   }
 }

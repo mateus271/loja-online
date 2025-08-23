@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, afterNextRender } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -12,18 +12,28 @@ export class AuthService {
   private apiUrl: string = "https://fakestoreapi.com/auth/login";
 
   constructor(private httpClient: HttpClient) {
-    const token = localStorage.getItem("login_token");
-    this._isLoggedIn.set(!!token);
+    afterNextRender(() => {
+
+      const token = localStorage.getItem("login_token");
+
+      if (token) {
+        try {
+          this._isLoggedIn.set(!!token);
+        }
+        catch (err) {
+        }
+      }
+    });
   }
 
   public login(username: string, password: string): Observable<{ token: string }> {
     return this.httpClient.post<{ token: string }>(this.apiUrl, { username, password })
-      .pipe(
-        tap(response => {
-          localStorage.setItem("login_token", response.token);
-          this._isLoggedIn.set(true);  // update signal
-        })
-      );
+    .pipe(
+      tap(response => {
+        localStorage.setItem("login_token", response.token);
+        this._isLoggedIn.set(true);  // update signal
+      })
+    );
   }
 
   public logout(): void {

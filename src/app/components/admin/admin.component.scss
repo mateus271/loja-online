@@ -1,0 +1,20 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+
+  h2, p {
+    align-self: flex-start;
+    margin: 0;
+    margin-left: 10%;
+  }
+
+  table.products-table {
+    width: 80%;
+    min-width: 50%;
+    justify-self: center;
+    padding: 15px 25px;
+    border-radius: 8px;
+  }
+}
